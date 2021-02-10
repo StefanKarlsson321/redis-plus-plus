@@ -78,7 +78,7 @@ void Subscriber::consume() {
 
     ReplyUPtr reply;
     try {
-        reply = _connection.recv();
+        reply = _connection.recv(false);
     } catch (const TimeoutError &) {
         _connection.reset();
         throw;
